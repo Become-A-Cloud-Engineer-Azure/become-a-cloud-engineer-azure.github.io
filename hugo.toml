@@ -3,6 +3,9 @@ languageCode = 'en-us'
 title = 'Azure for Cloud Engineers'
 theme = "docdock"
 
+[params]
+googleAnalytics = "G-0RME8DQBSQ"
+
 [outputs]
 home = [ "HTML", "RSS", "JSON"]
 
