@@ -1,5 +1,5 @@
 +++
-title = "Become A Cloud Engineer - Azure"
+title = "Azure for Cloud Engineers"
 +++
 
-# Become A Cloud Engineer - Azure
+# Azure for Cloud Engineers

@@ -1,6 +1,6 @@
-baseURL = 'https://example.org/'
+baseURL = 'https://cloud-engineer-azure.educ8.se'
 languageCode = 'en-us'
-title = 'DevOps For Project Managers'
+title = 'Azure for Cloud Engineers'
 theme = "docdock"
 
 [outputs]
