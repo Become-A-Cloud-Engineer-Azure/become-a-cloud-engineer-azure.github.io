@@ -1,0 +1,18 @@
+{{ $header := print "_header." .Lang }}
+{{ $headerPage := false }}
+{{ range .Site.RegularPages }}
+  {{ if and .File (eq .File.BaseFileName $header) }}
+    {{ $headerPage = . }}
+    {{ break }}
+  {{ end }}
+{{ end }}
+{{ if $headerPage }}
+  {{ $headerPage.Content }}
+{{ else }}
+  {{ $globalHeader := .Site.GetPage "_header.md" }}
+  {{ if $globalHeader }}
+    {{ $globalHeader.Content }}
+  {{ else }}
+    <a class="baselink" href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a>
+  {{ end }}
+{{ end }}
