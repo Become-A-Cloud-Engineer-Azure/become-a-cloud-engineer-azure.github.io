@@ -1,6 +1,6 @@
 +++
-title = "Exercise 0 - Exporting a Template from Azure Portal"
-weight = 0
+title = "Exercise 7. Exporting a Template from Azure Portal"
+weight = 7
 date = 2025-08-10
 draft = false
 +++
@@ -62,7 +62,7 @@ draft = false
 
 ---
 
-## Verification (hand‑in summary)
+## Verification
 Create a short note (5–8 bullets) answering:
 - Which **resource types** did you find?
 - What does the **VM** depend on?
@@ -75,7 +75,7 @@ Create a short note (5–8 bullets) answering:
 ## Stretch (optional)
 - If you have Bicep installed, try:  
   ```bash
-  bicep decompile template.json
+  az bicep decompile --file template.json
   ```
   Open the generated `template.bicep` and compare readability.
 
