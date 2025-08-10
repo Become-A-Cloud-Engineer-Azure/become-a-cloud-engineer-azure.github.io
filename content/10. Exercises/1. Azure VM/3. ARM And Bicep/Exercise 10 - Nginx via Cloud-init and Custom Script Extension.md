@@ -3,6 +3,7 @@ title = "Exercise 10. Nginx via Cloud-init (bash) and Custom Script Extension"
 weight = 10
 date = 2025-08-10
 draft = false
+tags = ["week2", "MOV"]
 +++
 
 **Goal:** Install **Nginx** on an Ubuntu VM using two approaches and compare them:

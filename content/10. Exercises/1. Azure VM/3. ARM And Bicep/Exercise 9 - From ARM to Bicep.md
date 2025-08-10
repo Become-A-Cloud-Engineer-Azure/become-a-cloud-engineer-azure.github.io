@@ -3,6 +3,7 @@ title = "Exercise 9. From ARM to Bicep: Ubuntu VM + Network"
 weight = 9
 date = 2025-08-10
 draft = false
+tags = ["week2", "MOV"]
 +++
 
 **Goal:** Rebuild **Exercise 8** using **Bicep** instead of ARM JSON. Produce a clean `main.bicep` and a `.bicepparam` file, preview with `what-if`, then deploy.

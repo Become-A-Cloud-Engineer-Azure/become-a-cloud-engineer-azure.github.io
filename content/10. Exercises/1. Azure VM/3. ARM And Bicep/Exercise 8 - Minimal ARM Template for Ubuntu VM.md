@@ -3,6 +3,7 @@ title = "Exercise 8. Minimal ARM Template: Ubuntu VM + Network"
 weight = 8
 date = 2025-08-10
 draft = false
+tags = ["week2", "MOV"]
 +++
 
 **Goal:** Author the *smallest viable* **ARM template** that deploys an **Ubuntu VM** with a minimal network (VNet/Subnet, NSG, Public IP, NIC). Preview with `what-if`, deploy, and capture the public IP as an output.

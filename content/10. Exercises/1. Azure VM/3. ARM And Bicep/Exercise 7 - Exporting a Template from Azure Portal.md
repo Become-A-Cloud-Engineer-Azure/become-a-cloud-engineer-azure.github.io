@@ -3,6 +3,7 @@ title = "Exercise 7. Exporting a Template from Azure Portal"
 weight = 7
 date = 2025-08-10
 draft = false
+tags = ["week2", "MOV"]
 +++
 
 **Goal:** See your week‑one Ubuntu VM and its network as **Infrastructure as Code** by exporting the deployment to an **ARM template**. This will give you a concrete reference before we author templates ourselves.

@@ -3,6 +3,7 @@ title = "1. Creating a Virtual Network (vNet)"
 weight = 1
 date = 2024-12-02
 draft = false
+tags = ["week3", "MOV"]
 +++
 
 ## Overview
