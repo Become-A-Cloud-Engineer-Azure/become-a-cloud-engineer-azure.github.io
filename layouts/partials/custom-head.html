@@ -13,3 +13,16 @@
   gtag('config', '{{ .Site.Params.googleAnalytics }}');
 </script>
 {{ end }}
+
+<!-- Custom CSS -->
+<link rel="stylesheet" href="{{ .Site.BaseURL }}css/custom.css">
+
+<!-- Mermaid.js -->
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<script>
+  mermaid.initialize({ 
+    startOnLoad: true,
+    theme: 'default',
+    securityLevel: 'loose'
+  });
+</script>

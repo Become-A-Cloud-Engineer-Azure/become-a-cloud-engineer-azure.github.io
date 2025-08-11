@@ -1,0 +1,15 @@
+/* Custom CSS for Mermaid diagrams */
+.mermaid {
+  text-align: center;
+  margin: 1em 0;
+  padding: 1em;
+  background-color: transparent;
+  border: 1px solid #e1e5e9;
+  border-radius: 4px;
+}
+
+/* Ensure Mermaid SVGs are responsive */
+.mermaid svg {
+  max-width: 100%;
+  height: auto;
+}
