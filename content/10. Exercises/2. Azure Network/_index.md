@@ -1,5 +1,5 @@
 +++
 title = "Azure Network"
 weight = 2
-draft = true
+draft = false
 +++
