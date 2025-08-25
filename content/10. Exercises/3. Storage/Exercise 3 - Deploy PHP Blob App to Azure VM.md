@@ -82,8 +82,12 @@ write_files:
       }
 
 runcmd:
-  # Install Composer
-  - cd /tmp && curl -sS https://getcomposer.org/installer | php
+  # Wait for package manager to finish and ensure PHP is available
+  - until command -v php >/dev/null 2>&1; do sleep 5; done
+  - systemctl start php8.1-fpm || systemctl start php-fpm
+  
+  # Install Composer with proper environment
+  - cd /tmp && curl -sS https://getcomposer.org/installer | COMPOSER_HOME=/root php
   - mv /tmp/composer.phar /usr/local/bin/composer
   - chmod +x /usr/local/bin/composer
   
