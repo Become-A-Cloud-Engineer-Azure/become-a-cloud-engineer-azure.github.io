@@ -162,8 +162,9 @@ In real-world applications, this architecture pattern is crucial because:
 
     packages:
       - nginx          # Web server
-      - php-fpm        # PHP FastCGI Process Manager
-      - php-mysql      # PHP MySQL extension
+      - php8.1-fpm     # PHP 8.1 FastCGI Process Manager (specific version)
+      - php8.1-mysql   # PHP 8.1 MySQL extension
+      - php8.1-cli     # PHP 8.1 command line interface
       - mysql-client   # MySQL client for testing
       - unzip          # For extracting files
 
