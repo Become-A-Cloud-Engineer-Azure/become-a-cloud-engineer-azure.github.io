@@ -315,14 +315,14 @@ echo "Deployment script finished!"
 If you prefer to run commands manually:
 
 ```bash
+# Upload files to VM using scp
+scp composer.json index.php .env azureuser@YOUR_VM_PUBLIC_IP:/tmp/
+
 # Connect to VM
 ssh azureuser@YOUR_VM_PUBLIC_IP
 
-# Stage files in /tmp
-cp ~/composer.json ~/index.php ~/.env /tmp/
-ls -la /tmp/{composer.json,index.php,.env}
-
-# Copy to final destination
+# Create application directory and copy files
+sudo mkdir -p /var/www/blobapp
 sudo cp /tmp/composer.json /tmp/index.php /tmp/.env /var/www/blobapp/
 
 # Install dependencies and set permissions
@@ -385,32 +385,7 @@ If the application doesn't work:
    ssh azureuser@YOUR_VM_PUBLIC_IP "ls -la /var/www/blobapp/"
    ```
 
-## Step 6: Secure Your Application (Optional)
-
-### Configure firewall
-
-```bash
-# Run firewall setup on VM
-ssh azureuser@YOUR_VM_PUBLIC_IP "
-sudo ufw enable &&
-sudo ufw allow 22 &&
-sudo ufw allow 80 &&
-sudo ufw status
-"
-```
-
-### SSL Certificate (Optional)
-
-For production deployments, consider setting up SSL with Let's Encrypt:
-
-```bash
-# Install Certbot (requires domain name)
-ssh azureuser@YOUR_VM_PUBLIC_IP "sudo apt install -y certbot python3-certbot-nginx"
-
-# Note: You'll need a domain name for SSL certificates
-```
-
-## Step 7: Test and Verify
+## Step 6: Test and Verify
 
 ### Verify all components
 
@@ -427,18 +402,6 @@ Test your application:
 - Image loading from Azure Blob Storage
 - Responsive design on different devices
 
-## Cleanup Resources
-
-When you're done with the exercise:
-
-1. **Stop the VM** (to save costs):
-   - Go to Azure Portal → Virtual Machines
-   - Select your VM → Stop
-
-2. **Delete resources** (if no longer needed):
-   - Delete the Resource Group `blob-app-rg`
-   - This will remove the VM, disk, network interface, and public IP
-
 ## Conclusion
 
 You've successfully deployed a PHP web application to an Azure Virtual Machine! This exercise
@@ -452,18 +415,8 @@ demonstrated:
 Your application is now running on Azure infrastructure and accessible via the internet, displaying
 images stored in Azure Blob Storage.
 
-## Next Steps
-
-Consider these enhancements:
-
-- Set up a custom domain name
-- Implement SSL/TLS certificates
-- Add monitoring and logging
-- Set up automated deployment pipelines
-- Implement backup strategies
-
 ## Don't Forget
 
-Azure VMs incur costs while running. Stop or delete resources when not needed to avoid unexpected charges.
+Azure VMs incur costs while running. Delete resources when not needed to avoid unexpected charges.
 
 ## Happy Deploying! 🚀
