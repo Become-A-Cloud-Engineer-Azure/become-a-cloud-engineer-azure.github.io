@@ -152,68 +152,68 @@ In real-world applications, this architecture pattern is crucial because:
 
 1. Create a local file named `cloud-init-app.yaml` with the following content:
 
-    > `cloud-init-app.yaml`
+> `cloud-init-app.yaml`
 
-    ```yaml
-    #cloud-config
-    # Application server with LEMP stack for Azure MySQL connectivity
+```yaml
+#cloud-config
+# Application server with LEMP stack for Azure MySQL connectivity
 
-    package_update: true
+package_update: true
 
-    # Add external repositories
-    apt:
-    sources:
-        ondrej-php:
-        source: ppa:ondrej/php
+# Add external repositories
+apt:
+  sources:
+    ondrej-php:
+      source: ppa:ondrej/php
 
-    packages:
-    - software-properties-common  # Required for adding PPAs
-    - nginx          # Web server
-    - php8.1-fpm     # PHP 8.1 FastCGI Process Manager (specific version)
-    - php8.1-mysql   # PHP 8.1 MySQL extension
-    - php8.1-cli     # PHP 8.1 command line interface
-    - mysql-client   # MySQL client for testing
-    - unzip          # For extracting files
+packages:
+  - software-properties-common  # Required for adding PPAs
+  - nginx          # Web server
+  - php8.1-fpm     # PHP 8.1 FastCGI Process Manager (specific version)
+  - php8.1-mysql   # PHP 8.1 MySQL extension
+  - php8.1-cli     # PHP 8.1 command line interface
+  - mysql-client   # MySQL client for testing
+  - unzip          # For extracting files
 
-    write_files:
-    # Configure Nginx to serve PHP files
-    - path: /etc/nginx/sites-available/default
-        content: |
-        server {
-            listen 80;
-            root /var/www/html;
-            index index.php index.html index.nginx-debian.html;
+write_files:
+  # Configure Nginx to serve PHP files
+  - path: /etc/nginx/sites-available/default
+    content: |
+      server {
+          listen 80;
+          root /var/www/html;
+          index index.php index.html index.nginx-debian.html;
 
-            server_name _;
+          server_name _;
 
-            location / {
-                try_files $uri $uri/ =404;
-            }
+          location / {
+              try_files $uri $uri/ =404;
+          }
 
-            location ~ \.php$ {
-                include snippets/fastcgi-php.conf;
-                fastcgi_pass unix:/var/run/php/php8.1-fpm.sock;
-            }
+          location ~ \.php$ {
+              include snippets/fastcgi-php.conf;
+              fastcgi_pass unix:/var/run/php/php8.1-fpm.sock;
+          }
 
-            # Health check endpoint
-            location /health {
-                access_log off;
-                return 200 "Application server healthy\n";
-                add_header Content-Type text/plain;
-            }
-        }
+          # Health check endpoint
+          location /health {
+              access_log off;
+              return 200 "Application server healthy\n";
+              add_header Content-Type text/plain;
+          }
+      }
 
-    runcmd:
-    # Set proper permissions for web directory
-    - chown -R www-data:www-data /var/www/html
-    - chmod -R 755 /var/www/html
+runcmd:
+  # Set proper permissions for web directory
+  - chown -R www-data:www-data /var/www/html
+  - chmod -R 755 /var/www/html
 
-    # Restart and enable services
-    - systemctl restart nginx
-    - systemctl enable nginx
-    - systemctl restart php8.1-fpm
-    - systemctl enable php8.1-fpm
-    ```
+  # Restart and enable services
+  - systemctl restart nginx
+  - systemctl enable nginx
+  - systemctl restart php8.1-fpm
+  - systemctl enable php8.1-fpm
+```
 
 > 💡 **Information**
 >
