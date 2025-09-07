@@ -6,8 +6,6 @@ draft = false
 tags = ["docker", "containerization", "php", "MOV"]
 +++
 
-# Exercise: Dockerizing a PHP Web Application
-
 ## 🎯 Goal
 
 Learn how to containerize a PHP web application using Docker, deploy it to Docker Hub, and share it with others for seamless deployment across different environments.
